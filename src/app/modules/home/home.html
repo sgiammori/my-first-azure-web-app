@@ -1,0 +1,152 @@
+
+<!-- Mobile: Top Banner -->
+<div class="home-banner-top d-md-none">
+  <div class="banner-content">Top Banner</div>
+</div>
+
+<!-- Desktop: Row Layout -->
+<div class="home-row d-none d-md-flex">
+  <div class="home-banner-left">
+    <div class="banner-content">Left Banner</div>
+  </div>
+  <div class="home-left">
+    <h2>ANSA News</h2>
+    <ul *ngIf="ansaNews() && ansaNews().length; else loadingNews">
+      <li *ngFor="let news of ansaNews()">
+        <a [href]="news.link" target="_blank">{{ news.title }}</a>
+        <div class="news-date">{{ news.pubDateFormatted }}<span *ngIf="news.pubDateFormattedTime">, {{ news.pubDateFormattedTime.split(', ')[1] }}</span></div>
+      </li>
+    </ul>
+    <ng-template #loadingNews>
+      <div>Loading news...</div>
+    </ng-template>
+  </div>
+  <div class="home-main">
+    <div class="row">
+      <figure class="emphasis-relief">
+        <img id="home-img" src="/images/android_logo_big.png" alt="Android Logo">
+      </figure>
+      <figure class="emphasis-relief">
+        <div class="home-card-content">
+            <p><strong>Innovazione :</strong> cerchiamo di produrre app innovative e di alta qualità conformi alle ultime esigenze software.</p>
+        </div>
+      </figure>
+      <figure class="emphasis-relief">
+        <img id="home-img" src="/images/719780.webp" alt="Android Logo">
+      </figure>
+      <figure class="emphasis-relief">
+        <div class="home-card-content">
+          <p><strong>Retrocompatibilità :</strong> ci assicuriamo che le nostre app siano compatibili con le versioni precedenti dei sistemi operativi per garantire la fruizione ad un ampio numero di utenti.</p>
+        </div>
+      </figure>
+      <figure class="emphasis-relief">
+        <img id="home-img" src="/images/android_logo_big.png" alt="Android Logo">
+      </figure>
+      <figure class="emphasis-relief">
+        <div class="home-card-content">
+          <p><strong>Culto del lavoro :</strong> la passione e l'impegno sono al centro del nostro approccio, garantendo risultati - si spera - importanti.</p>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <div class="home-right">
+    <h2>Blog Posts</h2>
+    <ul *ngIf="homeblogtunnelservice.getNewsList().length > 0; else loadingBlog">
+      <li *ngFor="let post of homeblogtunnelservice.getNewsList()">
+        <a [routerLink]="['/blog']" fragment="id-{{post.id}}">{{ post.title }}</a>
+        <div class="news-date">{{ convertDate(post.date) }}</div>
+        <div class="blog-content">{{ post.content }}</div>
+      </li>
+    </ul>
+    <ng-template #loadingBlog>
+      <div>Nessun post da visualizzare...</div>
+    </ng-template>
+  </div>
+  <div class="home-banner-right">
+    <div class="banner-content">Right Banner</div>
+  </div>
+</div>
+
+<!-- Mobile: Column Layout -->
+<div class="home-col d-md-none">
+  <div class="home-main">
+    <section class="home-card-layout row">
+      <figure class="emphasis-relief">
+        <img id="home-img" src="/images/android_logo_big.png" alt="Android Logo">
+        <div class="home-card-content">
+            <p><strong>Innovazione :</strong> cerchiamo di produrre app innovative e di alta qualità conformi alle ultime esigenze software.</p>
+        </div>
+      </figure>
+      <figure class="emphasis-relief">
+        <div class="home-card-content">
+          <p><strong>Retrocompatibilità :</strong> ci assicuriamo che le nostre app siano compatibili con le versioni precedenti dei sistemi operativi per garantire la fruizione ad un ampio numero di utenti.</p>
+        </div>
+        <img id="home-img" src="/images/719780.webp" alt="Android Logo">
+      </figure>
+      <figure class="emphasis-relief">
+        <img id="home-img" src="/images/android_logo_big.png" alt="Android Logo">
+        <div class="home-card-content">
+          <p><strong>Culto del lavoro :</strong> la passione e l'impegno sono al centro del nostro approccio, garantendo risultati - si spera - importanti.</p>
+        </div>
+      </figure>
+    </section>
+  </div>
+  <div class="home-right">
+    <h2>Blog Posts</h2>
+    <ul *ngIf="homeblogtunnelservice.getNewsList().length > 0; else loadingBlog">
+      <li *ngFor="let post of homeblogtunnelservice.getNewsList()">
+        <a [routerLink]="['/blog']" fragment="id-{{post.id}}">{{ post.title }}</a>
+        <div class="news-date">{{ convertDate(post.date) }}</div>
+        <div class="blog-content">{{ post.content }}</div>
+      </li>
+    </ul>
+    <ng-template #loadingBlog>
+      <div>Nessun post da visualizzare...</div>
+    </ng-template>
+  </div>
+  <div class="home-left">
+    <h2>ANSA News</h2>
+    <ul *ngIf="ansaNews() && ansaNews().length; else loadingNews">
+      <li *ngFor="let news of ansaNews()">
+        <a [href]="news.link" target="_blank">{{ news.title }}</a>
+        <div class="news-date">{{ news.pubDateFormatted }}<span *ngIf="news.pubDateFormattedTime">, {{ news.pubDateFormattedTime.split(', ')[1] }}</span></div>
+      </li>
+    </ul>
+    <ng-template #loadingNews>
+      <div>Loading news...</div>
+    </ng-template>
+  </div>
+</div>
+
+<!-- Mobile: Bottom Banner -->
+<div class="home-banner-bottom d-md-none">
+  <div class="banner-content">Bottom Banner</div>
+</div>
+
+<!--
+<div style="background:#f3f2f1; padding:16px; border-radius:8px; max-width:728px;">
+  <img src="https://icubed.it/content/uploads/2022/11/digital_and_app_innoation_azure_completo.png" alt="Microsoft Partner" style="height:40px; margin-bottom:10px;">
+  <h3 style="margin:0; font-family:Segoe UI;">Soluzioni Cloud basate su Microsoft Azure</h3>
+  <p style="margin:4px 0 12px; font-family:Segoe UI; color:#555;">
+    Servizi professionali, migrazione, AI e infrastruttura cloud.
+  </p>
+  <a href="YOUR_LINK" style="background:#0078d4; color:#fff; padding:8px 14px; border-radius:4px; text-decoration:none; font-family:Segoe UI;">
+    Scopri di più
+  </a>
+</div>
+<div style="background:#f3f2f1; padding:24px; border-radius:12px; max-width:728px; border: 1px solid #e1dfdd; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+  <!-- Sostituisci il src con il link al tuo logo ufficiale
+  <img src="https://mma.prnewswire.com/media/2866597/Protiviti_Microsoft_Frontier_Partner_Badge.jpg?p=distribution" alt="Microsoft Solutions Partner" style="height:50px; margin-bottom:15px; display:block;">
+
+  <h3 style="margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#323130; font-size:20px;">
+    Soluzioni Cloud basate su Microsoft Azure
+  </h3>
+
+  <p style="margin:8px 0 20px; font-family:'Segoe UI', sans-serif; color:#605e5c; line-height:1.5;">
+    Accellera la tua trasformazione digitale con servizi professionali di migrazione, implementazione AI e gestione infrastruttura cloud sicura.
+  </p>
+
+  <a href="TUO_LINK_CONTATTO" style="background:#0078d4; color:#ffffff; padding:10px 20px; border-radius:4px; text-decoration:none; font-family:'Segoe UI', sans-serif; font-weight:600; display:inline-block; transition: background 0.2s;">
+    Richiedi una Consulenza Azure
+  </a>
+</div>-->

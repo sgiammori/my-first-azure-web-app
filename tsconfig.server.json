@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc/server",
+    "target": "es2022",
+    "types": ["node", "express"],
+    "module": "es2022",
+    "moduleResolution": "bundler"
+  },
+  "files": [
+    "src/server.ts",
+    "src/main.server.ts"
+  ]
+}

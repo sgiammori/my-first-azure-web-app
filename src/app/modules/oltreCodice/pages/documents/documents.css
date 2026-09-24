@@ -1,0 +1,391 @@
+/* Novel layout */
+.novel-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.novel-header {
+  text-align: center;
+  padding: 2rem 0 2.5rem;
+  border-bottom: 1px solid #e1dfdd;
+  margin-bottom: 2rem;
+}
+
+.novel-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.novel-subtitle {
+  font-style: italic;
+  color: #555;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 0.75rem;
+  line-height: 1.6;
+}
+
+.novel-version {
+  font-size: 0.8rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.novel-cover{
+  display: flex;
+  justify-content: center;
+  margin : 0 auto;
+  width: 125vw;
+  height: 90vh;
+  padding: 5rem;
+}
+
+.page-cover{
+  display: flex;
+  justify-content: center;
+  margin : 0 auto;
+  width: 50vw;
+  height: 125vh;
+  padding: 5rem;
+}
+
+@media (max-width: 768px) {
+  .novel-cover{
+    width: 125vw;
+    height: 42vh;
+    padding: 2rem;
+  }
+  .page-cover{
+    width: 75vw;
+    height: 48vh;
+    padding: 2rem;
+  }
+}
+
+.img-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.chapter-nav {
+  background: #f8f7f6;
+  border-radius: 10px;
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.chapter-nav > h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #999;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.chapter-nav ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-family: Georgia, serif;
+}
+
+.chapter-nav li {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.chapter-nav a {
+  color: #333;
+  text-decoration: none;
+}
+
+.chapter-nav a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.chapter {
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #e1dfdd;
+}
+
+.chapter:last-of-type {
+  border-bottom: none;
+}
+
+.chapter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #111;
+  line-height: 1.3;
+}
+
+.chapter-number {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #999;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin-bottom: 0.3rem;
+}
+
+.novel-wrapper p {
+  line-height: 1.9;
+  margin-bottom: 1.1rem;
+  color: #1a1a1a;
+  font-size: 1.02rem;
+  text-align: justify;
+}
+
+.lyrics-quote {
+  border-left: 3px solid #ccc;
+  margin: 1.5rem 0 1.5rem 1.5rem;
+  padding: 0.5rem 1rem;
+  font-style: italic;
+  color: #444;
+}
+
+.lyrics-quote p {
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+
+.lyrics-quote cite {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: normal;
+}
+
+.novel-closing {
+  font-style: italic;
+  font-weight: 600;
+  text-align: center !important;
+  font-size: 1.1rem !important;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.personal-note {
+  background: #f8f7f6;
+  border: 1px solid #e1dfdd;
+  border-radius: 12px;
+  padding: 2rem 2rem 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.personal-note .chapter-title {
+  font-size: 1.25rem;
+}
+
+.note-steps {
+  margin: 0 0 1.1rem;
+  padding-left: 1.5rem;
+  line-height: 1.9;
+  color: #1a1a1a;
+  font-size: 1.02rem;
+}
+
+.note-steps li {
+  margin-bottom: 0.35rem;
+}
+
+.note-ps {
+  border-top: 1px solid #e1dfdd;
+  padding-top: 1.1rem;
+  font-size: 0.95rem !important;
+  color: #444 !important;
+}
+
+.novel-footer {
+  text-align: right;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e1dfdd;
+}
+
+.author-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  font-family: Georgia, serif;
+}
+
+.novel-version-tag {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.novel-download {
+  max-width: 780px;
+  margin: 1.5rem auto 2rem;
+  text-align: center;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+
+.download-btn::before {
+  content: '↓';
+  font-size: 1rem;
+}
+
+.download-btn:hover {
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Horizontally scrollable row of downloadable document squares */
+.downloads {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  max-width: 780px;
+  margin: 1.5rem auto 2rem;
+  padding: 0.5rem 0.25rem 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+}
+
+.doc-square {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 84px;
+  height: 84px;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 0.35rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.doc-square:hover {
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.doc-square-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+.doc-square-ext {
+  font-size: 0.7rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.emphasis-relief {
+  background: linear-gradient(135deg, #f3f2f1 60%, #e1dfdd 100%);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 1.5px 0 #fff inset;
+  border-radius: 12px;
+  border: 1px solid #e1dfdd;
+  padding: 12px 18px;
+  margin: 12px 0;
+  transition: box-shadow 0.2s;
+}
+.emphasis-relief:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.flex-item {
+  margin: 10px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.image-container{
+  display: flex;
+  width: fit-content;
+  height: 100%;
+  justify-content: end;
+  padding: 5px;
+}
+
+.image-container img {
+  position: relative;
+  align-self: end;
+  justify-self: end;
+  border-radius: 50px;
+  width: auto;
+  max-width: 100%;
+  max-height: 35vh;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-container-cv{
+  display: flex;
+  width: fit-content;
+  height: 100%;
+  justify-content: start;
+}
+
+.image-container-cv img {
+  position: relative;
+  align-self: end;
+  justify-self: end;
+  border-radius: 5px;
+  width: auto;
+  max-width: 100%;
+  max-height: 45vh;
+  height: auto;
+  object-fit: contain;
+}

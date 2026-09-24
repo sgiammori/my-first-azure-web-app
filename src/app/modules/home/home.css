@@ -1,0 +1,150 @@
+.emphasis-relief {
+  background: linear-gradient(135deg, #f3f2f1 60%, #e1dfdd 100%);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 1.5px 0 #fff inset;
+  border-radius: 12px;
+  border: 1px solid #e1dfdd;
+  padding: 12px 18px;
+  margin: 12px 0;
+  transition: box-shadow 0.2s;
+}
+.emphasis-relief:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.card-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	text-align: center;
+  padding: 10px;
+}
+.image-container {
+	width: 120px;
+	height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+}
+
+#home-img {
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+	display: block;
+	margin: 0 auto;
+}
+/* --- Responsive Home Layout and Emphasis Relief --- */
+.home-row {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-items: stretch;
+	justify-content: center;
+	gap: 0;
+}
+
+.home-col{
+  display: flex;
+  flex-direction: column;
+}
+
+.row{
+  display: flex;
+  padding: 10px;
+  width: 100%;
+}
+
+img{
+  border-radius: 1.2rem;
+}
+
+.home-card-content {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.home-left, .home-main, .home-right {
+	background: linear-gradient(135deg, #f3f2f1 60%, #e1dfdd 100%);
+	box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 1.5px 0 #fff inset;
+	border-radius: 12px;
+	border: 1px solid #e1dfdd;
+	margin: 0 8px;
+	padding: 12px;
+	box-sizing: border-box;
+	min-width: 180px;
+	flex: 1 1 0;
+	transition: box-shadow 0.2s;
+}
+
+.home-left:hover, .home-main:hover, .home-right:hover {
+	box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.home-banner-left, .home-banner-right {
+	width: 120px;
+	min-width: 80px;
+	max-width: 140px;
+	background: #f1f1f1;
+	border: 1px dashed #bbb;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 16px;
+	margin: 0 8px;
+	height: auto;
+	box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+	.home-row {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
+	}
+	.home-banner-left { order: 1; width: 100%; margin: 0 0 12px 0; }
+	.home-main       { order: 2; width: 100%; margin: 0 0 12px 0; }
+	.home-right      { order: 3; width: 100%; margin: 0 0 12px 0; }
+	.home-left       { order: 4; width: 100%; margin: 0 0 12px 0; }
+	.home-banner-right { order: 5; width: 100%; margin: 0 0 12px 0; }
+	.home-card-layout { flex-direction: column; padding: 0; gap: 8px; }
+	.home-card #home-img { width: 70px; height: 70px; flex-shrink: 0; }
+}
+
+@media (min-width: 769px) {
+	.home-row {
+		flex-direction: row;
+		align-items: stretch;
+		gap: 0;
+	}
+	.home-banner-left { order: 1; }
+	.home-left        { order: 2; }
+	.home-main        { order: 3; }
+	.home-right       { order: 4; }
+	.home-banner-right { order: 5; }
+	.home-banner-left, .home-banner-right {
+		width: 120px;
+		min-width: 80px;
+		max-width: 140px;
+		margin: 0 8px;
+	}
+	.home-left, .home-main, .home-right {
+		width: auto;
+		min-width: 180px;
+		margin: 0 8px;
+	}
+	}
+
+	/* Ensure content in .home-right and .blog-content wraps and does not overflow */
+	.home-right, .home-right .blog-content {
+	  word-break: break-word;
+	  overflow-wrap: break-word;
+	  white-space: normal;
+	  min-width: 0;
+	  max-width: 100%;
+}

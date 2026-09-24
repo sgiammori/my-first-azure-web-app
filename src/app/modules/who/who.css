@@ -1,0 +1,73 @@
+.emphasis-relief {
+  background: linear-gradient(135deg, #f3f2f1 60%, #e1dfdd 100%);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 1.5px 0 #fff inset;
+  border-radius: 12px;
+  border: 1px solid #e1dfdd;
+  padding: 12px 18px;
+  margin: 12px 0;
+  transition: box-shadow 0.2s;
+}
+.emphasis-relief:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.flex-item {
+  margin: 10px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.image-container{
+  display: flex;
+  width: fit-content;
+  height: 100%;
+  justify-content: end;
+  padding: 5px;
+}
+
+.image-container img {
+  position: relative;
+  align-self: end;
+  justify-self: end;
+  border-radius: 50px;
+  width: auto;
+  max-width: 100%;
+  max-height: 35vh;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-container-cv{
+  display: flex;
+  width: fit-content;
+  height: 100%;
+  justify-content: start;
+}
+
+.image-container-cv img {
+  position: relative;
+  align-self: end;
+  justify-self: end;
+  border-radius: 5px;
+  width: auto;
+  max-width: 100%;
+  max-height: 45vh;
+  height: auto;
+  object-fit: contain;
+}

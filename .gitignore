@@ -1,0 +1,59 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# Secrets (local Azure Functions settings, service account keys, etc.)
+api/local.settings.json
+api/node_modules
+api/.vscode
+*firebase-adminsdk*.json
+*-adminsdk-*.json
+
+# Local HTTPS certificate for "ng serve --ssl" (see angular.json). Never put keys in public/:
+# everything there is deployed and downloadable from the website.
+/ssl/
+*.pem
+
+# dist/
+/dist
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio
+.vs/
+
+# Visual Studio Code
+.vscode/
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db
+dist/
+
+# Downloaded Azure logs
+webapp_logs*.zip

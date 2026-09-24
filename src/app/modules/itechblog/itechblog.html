@@ -1,0 +1,22 @@
+<div class="itechblog-row">
+  <div class="itechblog-banner-left d-none d-md-block">
+    <div class="banner-content">Left Banner</div>
+  </div>
+  <div class="itechblog-main">
+    <div class="itechblog-container">
+  <h2>iTech Blog (Tom's Hardware Italia)</h2>
+  <div *ngIf="loading()">Caricamento notizie...</div>
+  <div *ngIf="error()">{{ error() }}</div>
+  <ul *ngIf="!loading() && !error()">
+    <li *ngFor="let item of rssItems()">
+      <a [href]="item.link" target="_blank">{{ item.title }}</a>
+      <div class="itechblog-date">{{ item.pubDate | date:'medium' }}</div>
+      <div class="itechblog-desc">{{ item.description }}</div>
+    </li>
+  </ul>
+    </div>
+  </div>
+  <div class="itechblog-banner-right d-none d-md-block">
+    <div class="banner-content">Right Banner</div>
+  </div>
+</div>

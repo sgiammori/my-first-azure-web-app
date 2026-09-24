@@ -1,0 +1,3 @@
+nav.fixed-bottom {
+	z-index: 1030; /* Bootstrap default for .navbar, adjust as needed */
+}

@@ -1,0 +1,33 @@
+<div class="modal" [ngClass]="{ 'show': show }" tabindex="-1" style="display: block; background: rgba(0,0,0,0.3);" *ngIf="show">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Insert Custom Link</h5>
+        <button type="button" class="btn-close" (click)="handleClose()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-2">
+          <label>Select link type:</label>
+          <select [(ngModel)]="selectedType" class="form-select" (ngModelChange)="onTypeChange()">
+            <option value="external">External URL</option>
+          </select>
+        </div>
+        <div class="mb-2" *ngIf="selectedType === 'external'">
+          <label>External URL:</label>
+          <input [(ngModel)]="externalUrl" class="form-control" placeholder="https://example.com/page.html">
+        </div>
+        <div class="mb-2">
+          <label>Link text:</label>
+          <input [(ngModel)]="linkText" class="form-control" placeholder="Enter link text">
+        </div>
+      </div>
+      <div class="modal-footer d-flex flex-column align-items-stretch gap-2">
+        <div class="mb-2 d-flex gap-2">
+          <button type="button" class="btn btn-primary flex-grow-1" (click)="confirm()" [disabled]="insertDisabled()">Insert Link</button>
+          <button type="button" class="btn btn-secondary flex-grow-1" (click)="handleClose()">Cancel</button>
+        </div>
+        <!-- No separate new buttons, handled in dropdown -->
+      </div>
+    </div>
+  </div>
+</div>

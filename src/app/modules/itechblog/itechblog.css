@@ -1,0 +1,82 @@
+.itechblog-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+}
+.itechblog-banner-left, .itechblog-banner-right {
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
+  background: #f1f1f1;
+  border: 1px dashed #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin: 16px 0;
+  height: 600px;
+}
+.itechblog-banner-left {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  margin-right: 16px;
+}
+.itechblog-banner-right {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  margin-left: 16px;
+}
+.itechblog-main {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.banner-content {
+  writing-mode: vertical-lr;
+  text-align: center;
+  color: #888;
+  font-size: 1.1em;
+}
+.itechblog-container {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 24px 18px;
+  margin: 24px auto;
+  max-width: 700px;
+}
+.itechblog-container h2 {
+  color: #1976d2;
+  margin-bottom: 18px;
+}
+.itechblog-container ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+.itechblog-container li {
+  margin-bottom: 18px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 10px;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06);
+}
+.itechblog-container a {
+  font-weight: 600;
+  color: #1976d2;
+  text-decoration: none;
+}
+.itechblog-container a:hover {
+  text-decoration: underline;
+}
+.itechblog-date {
+  font-size: 0.95em;
+  color: #888;
+  margin-bottom: 6px;
+}
+.itechblog-desc {
+  font-size: 1em;
+  color: #444;
+  margin-top: 4px;
+}

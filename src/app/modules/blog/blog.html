@@ -1,0 +1,126 @@
+<div class="blog-banner-left d-none d-md-block">
+  <!-- Left Banner Content (e.g., ad, image, or text) -->
+  <div class="banner-content">Left Banner</div>
+</div>
+<div class="blog-banner-right d-none d-md-block">
+  <!-- Right Banner Content (e.g., ad, image, or text) -->
+  <div class="banner-content">Right Banner</div>
+</div>
+<main style="margin-left: 130px; margin-right: 130px;">
+  <div class="admin-btn-container">
+     @if(isAdmin()){
+      <button class="btn btn-primary mb-3" (click)="isAdmin.set(false)">Exit</button>
+      <button class="btn btn-primary mb-3" (click)="downloadDataText()">Data</button>
+     }@else {
+      <button class="btn btn-primary mb-3" (click)="admin()">Admin</button>
+     }
+  </div>
+  <h1 class="blog-title">Blog</h1>
+  @if(isAdmin()){
+    <div class="quill-toolbar-custom">
+      <div id="custom-toolbar">
+        <span class="ql-formats">
+          <button class="ql-bold" title="Bold (Ctrl+B)"></button>
+          <button class="ql-italic" title="Italic (Ctrl+I)"></button>
+          <button class="ql-underline" title="Underline (Ctrl+U)"></button>
+          <button class="ql-strike" title="Strikethrough"></button>
+        </span>
+        <span class="ql-formats">
+          <select class="ql-header" title="Header size">
+            <option value="1">H1</option>
+            <option value="2">H2</option>
+            <option value="3">H3</option>
+            <option value="4">H4</option>
+            <option value="5">H5</option>
+            <option value="6">H6</option>
+            <option selected>Normal</option>
+          </select>
+          <select class="ql-size" title="Font size">
+            <option value="small">Small</option>
+            <option selected>Normal</option>
+            <option value="large">Large</option>
+            <option value="huge">Huge</option>
+          </select>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-list" value="ordered" title="Numbered list"></button>
+          <button class="ql-list" value="bullet" title="Bullet list"></button>
+          <button class="ql-indent" value="-1" title="Decrease indent"></button>
+          <button class="ql-indent" value="+1" title="Increase indent"></button>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-script" value="sub" title="Subscript"></button>
+          <button class="ql-script" value="super" title="Superscript"></button>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-direction" value="rtl" title="Right-to-left"></button>
+          <select class="ql-align" title="Text alignment">
+            <option selected>Left</option>
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+            <option value="justify">Justify</option>
+          </select>
+        </span>
+        <span class="ql-formats">
+          <select class="ql-color" title="Text color"></select>
+          <select class="ql-background" title="Background color"></select>
+        </span>
+        <span class="ql-formats">
+          <select class="ql-font" title="Font family"></select>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-customLink" type="button" (click)="openCustomLinkModal()" title="Insert link"></button>
+          <button class="ql-hr" type="button" title="Insert horizontal line"></button>
+          <button class="ql-image" title="Insert image"></button>
+          <button class="ql-video" title="Insert video"></button>
+          <button class="ql-clean" title="Remove formatting"></button>
+        </span>
+      </div>
+    </div>
+    <quill-editor
+      class="form-control editor-surface"
+      [style]="'min-height: 26rem;'"
+      [modules]="quillModules"
+      (onContentChanged)="onQuillContentChanged($event)"
+      [placeholder]="'Scrivi qui il contenuto...'"
+      [format]="'html'"
+      (onEditorCreated)="onQuillEditorCreated($event)"
+      [formControl]="editorControl">
+    </quill-editor>
+    <app-custom-link-modal
+      [show]="showCustomLinkModal()"
+      [onSelect]="handleCustomLinkInsert.bind(this)"
+      [linkText]="selectedLinkText()"
+      (close)="showCustomLinkModal.set(false)">
+    </app-custom-link-modal>
+    <div class="d-flex justify-content-end mt-2">
+      <button type="button" class="btn btn-primary btn-sm" (click)="saveEditedHtml(); $event.preventDefault()">Save</button>
+    </div>
+  }
+  @if(homeblogtunnelservice.getNewsList().length === 0){
+    <p class="text-center">No news available.</p>
+  }
+  @for (item of homeblogtunnelservice.getNewsList(); track $index) {
+    <div class="mb-4 emphasis-relief position-relative">
+      <h5 class="blog-content-html"><strong>{{ item.title }}</strong></h5>
+      <div class="blog-content-html" [innerHTML]="item.content"></div>
+      <div class="d-flex justify-content-end align-items-end mt-2" *ngIf="item.authors && item.authors.length">
+        <small class="text-muted">{{ item.authors.map(a => a.author).join(', ') }}</small>
+      </div>
+      @if(isAdmin()){
+        <div class="d-flex justify-content-end mt-1 gap-2">
+          <button class="btn btn-primary btn-sm" (click)="editNews(item)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteNews(item.id)">Delete</button>
+        </div>
+        <div class="d-flex justify-content-end mt-1">
+        <span *ngIf="!item.uploadedOnFacebook" class="material-icons md-facebook"
+          [class.disabled]="!facebookSdkReady()"
+          [attr.title]="facebookSdkReady() ? 'facebook' : 'Facebook SDK non è ancora pronto'"
+          (click)="facebookSdkReady() && uploadOnFacebook($event, item)">
+          facebook
+        </span>
+      </div>
+      }
+    </div>
+  }
+</main>

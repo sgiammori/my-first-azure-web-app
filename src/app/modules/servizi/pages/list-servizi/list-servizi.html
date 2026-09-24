@@ -1,0 +1,73 @@
+<section class="content-main">
+
+  <div class="container-fluid">
+    <div class="column emphasis-relief">
+      <img class="home-img" src="/images/android_logo.png" alt="Android Logo">
+      <h2>Lista Servizi</h2>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="row justify-content-center align-items-center text-center">
+        <!-- Banner orizzontale per small, verticale per md+ -->
+        <div class="d-block d-md-none w-100 mb-2">
+          <div style="background:#f1f1f1; width:100%; height:60px; display:flex; align-items:center; justify-content:center; border:1px dashed #bbb; text-align:center;">Ad Banner Top</div>
+        </div>
+        <div class="col-md-2 d-none d-md-flex flex-column justify-content-center align-items-center" style="min-height: 400px;">
+          <!-- Left ad banner -->
+          <div style="background:#f1f1f1; width:120px; height:400px; display:flex; align-items:center; justify-content:center; border:1px dashed #bbb; writing-mode:vertical-lr; text-align:center;">Ad Banner Left</div>
+        </div>
+        <div class="col-md-8 d-flex flex-column justify-content-center align-items-center" style="min-height: 400px;">
+          <div class="table-responsive w-100">
+            <table class="table table-hover modern-servizi-table">
+              <thead>
+                <tr>
+                  <th scope="col">Icon</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Developer</th>
+                  <th scope="col">Playstore URL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let servizio of servizi$() | paginate: { itemsPerPage: righe, currentPage: pagina }">
+                  <td class="tbl-string icon-cell">
+                    <div class="icon-cell-inner">
+                      <img *ngIf="servizio.ogImage" [src]="servizio.ogImage" alt="App Icon" class="app-icon" />
+                    </div>
+                  </td>
+                  <td class="tbl-string title-cell">{{servizio.ogTitle}}</td>
+                  <td class="tbl-string developer-cell">Stefano Giammori</td>
+                  <td class="tbl-string url-cell">
+                    <a rel="canonical" *ngIf="servizio.ogUrl" [href]="servizio.ogUrl" target="_blank" title="View on Play Store" class="playstore-link">
+                      <img src="{{servizio.ogImage}}" alt="Play Store" class="playstore-icon" />
+                      View
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Paginazione -->
+          <nav class="float-end mt-3" aria-label="Page navigation">
+            <pagination-controls class="my-pagination"
+                                 (pageChange)="pagina = $event"
+                                 previousLabel="Precedente"
+                                 nextLabel="Successivo">
+            </pagination-controls>
+          </nav>
+          <div class="alert alert-danger" role="alert" *ngIf="errore()">
+            {{this.errore()}}
+          </div>
+        </div>
+        <div class="d-block d-md-none w-100 mt-2">
+          <div style="background:#f1f1f1; width:100%; height:60px; display:flex; align-items:center; justify-content:center; border:1px dashed #bbb; text-align:center;">Ad Banner Bottom</div>
+        </div>
+        <div class="col-md-2 d-none d-md-flex flex-column justify-content-center align-items-center" style="min-height: 400px;">
+          <!-- Right ad banner -->
+          <div style="background:#f1f1f1; width:120px; height:400px; display:flex; align-items:center; justify-content:center; border:1px dashed #bbb; writing-mode:vertical-lr; text-align:center;">Ad Banner Right</div>
+        </div>
+      </div>
+  </div>
+  </div>
+</section>

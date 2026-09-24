@@ -1,0 +1,63 @@
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .navbar-nav {
+    width: 100%;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 1rem;
+  }
+  .col-nav {
+    width: 100%;
+    justify-content: center !important;
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
+  form.d-flex {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+}
+/* Align col-nav to the right and vertically center */
+.col-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+img {
+  display: inline-block;
+}
+
+.dduser {
+  margin-right: 55px;
+  margin-left: 20px;
+}
+
+nav {
+  margin-bottom: 0.8%;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.navbar-brand {
+  background-image: url("/images/texture.jpg");
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+/* Highlight the active route when routerLinkActive applies 'active' to li */
+.navbar-nav .nav-item.active > .nav-link {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-item.active {
+  border-bottom: 2px solid #0d6efd;
+}

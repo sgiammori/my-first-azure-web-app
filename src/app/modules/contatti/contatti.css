@@ -1,0 +1,232 @@
+/* --- Contatti Section Modern Restyle --- */
+.contatti-header {
+  margin-bottom: 2rem;
+}
+.contatti-title {
+  font-size: 2.2rem;
+  letter-spacing: 0.04em;
+  color: #222;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  display: inline-block;
+}
+.contatti-subtitle {
+  font-size: 1.2rem;
+  color: #1976d2;
+  margin-bottom: 0;
+}
+.contatti-info-row {
+  margin-bottom: 2rem;
+}
+.contatti-info-box {
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 2rem 1rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  transition: box-shadow 0.2s;
+}
+.contatti-info-box:hover {
+  box-shadow: 0 4px 16px rgba(25,118,210,0.10);
+}
+.contatti-info-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.5rem 0;
+  color: #1976d2;
+  letter-spacing: 0.03em;
+}
+.contatti-info-value {
+  font-size: 1.1rem;
+  color: #333;
+  word-break: break-word;
+}
+.contatti-info-value a {
+  color: #1976d2;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contatti-info-value a:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+.contatti-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.contatti-social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.social-brand-icon {
+  display: inline-flex;
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+}
+
+.social-brand-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.icon-facebook {
+  color: #1877f2;
+}
+
+.icon-instagram {
+  color: #d62976;
+}
+/* Icon Styles */
+.contatti-icon-user {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  background: url('data:image/svg+xml;utf8,<svg fill="%231976d2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.7 0 8 1.34 8 4v2H4v-2c0-2.66 5.3-4 8-4zm0-2a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>') no-repeat center/contain;
+}
+.contatti-icon-phone {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  background: url('data:image/svg+xml;utf8,<svg fill="%231976d2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2z"/></svg>') no-repeat center/contain;
+}
+.contatti-icon-mail {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  background: url('data:image/svg+xml;utf8,<svg fill="%231976d2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 7 8-7V20H4z"/></svg>') no-repeat center/contain;
+}
+.contatti-icon-location {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  background: url('data:image/svg+xml;utf8,<svg fill="%231976d2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>') no-repeat center/contain;
+}
+
+.contatti-icon-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.contatti-icon-social .social-brand-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+/* Banners for contatti: responsive placement */
+/* Default: banners above and below content for desktop */
+.banner-left, .banner-right {
+  display: none;
+}
+.banner-top, .banner-bottom {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafbfc;
+  border: 1.5px solid #e1dfdd;
+  box-shadow: 0 4px 16px rgba(44,62,80,0.08), 0 1.5px 0 #fff inset;
+  border-radius: 16px;
+  opacity: 0.98;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #1976d2;
+  letter-spacing: 0.06em;
+  margin: 0 0 1rem 0;
+  pointer-events: auto;
+}
+.banner-bottom {
+  margin: 1rem 0 0 0;
+}
+
+@media (max-width: 768px) {
+  .banner-top, .banner-bottom {
+    display: none !important;
+  }
+  .banner-left, .banner-right {
+    display: flex !important;
+    position: fixed;
+    top: 64px;
+    width: 36px;
+    height: calc(100vh - 64px);
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    background: #fafbfc;
+    border: 1.5px solid #e1dfdd;
+    box-shadow: 0 4px 16px rgba(44,62,80,0.08), 0 1.5px 0 #fff inset;
+    border-radius: 16px;
+    opacity: 0.98;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1976d2;
+    letter-spacing: 0.06em;
+    margin: 0;
+    pointer-events: auto;
+  }
+  .banner-left { left: 0; border-top-right-radius: 16px; border-bottom-right-radius: 16px; }
+  .banner-right { right: 0; border-top-left-radius: 16px; border-bottom-left-radius: 16px; }
+  main.container-fluid.contents {
+    margin-left: 36px !important;
+    margin-right: 36px !important;
+    min-height: calc(100vh - 64px);
+    box-sizing: border-box;
+    width: auto;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+@media (min-width: 769px) {
+  .banner-top, .banner-bottom {
+    display: flex !important;
+  }
+  .banner-left, .banner-right {
+    display: none !important;
+  }
+  main.container-fluid.contents {
+    margin: 0 !important;
+    min-height: calc(100vh - 64px - 48px*2);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* Responsive font sizes using uv (vw) and uh (vh) units */
+.titles {
+  font-size: clamp(1.5rem, 3.5vw, 4.5rem);
+  font-family: 'Times New Roman', Times, serif;
+}
+.subtitles {
+  font-size: clamp(1.2rem, 2.5vw, 3.5rem);
+  font-family: 'Times New Roman', Times, serif;
+}
+.info {
+  font-size: clamp(1rem, 1.5vw, 2.5rem);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+img {
+  width: 400px;
+  height: 400px;
+}

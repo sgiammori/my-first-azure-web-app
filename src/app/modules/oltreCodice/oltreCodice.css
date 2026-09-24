@@ -1,0 +1,73 @@
+.oltre-hub {
+  padding: 2rem 1rem;
+}
+
+.oltre-hub-header {
+  margin-bottom: 2.5rem;
+}
+
+.oltre-hub-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.oltre-hub-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.oltre-hub-cards {
+  gap: 1.5rem;
+}
+
+.oltre-card {
+  background: linear-gradient(135deg, #f3f2f1 60%, #e1dfdd 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 1.5px 0 #fff inset;
+  border-radius: 16px;
+  border: 1px solid #e1dfdd;
+  padding: 2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.oltre-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.13);
+  transform: translateY(-3px);
+}
+
+.oltre-card-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 0.75rem;
+}
+
+.oltre-card-icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.oltre-card h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.oltre-card p {
+  color: #555;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.oltre-card-cta {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #0078d4;
+  font-size: 0.95rem;
+}

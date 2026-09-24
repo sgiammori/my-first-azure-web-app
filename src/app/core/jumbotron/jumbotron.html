@@ -1,0 +1,17 @@
+<div class="jumbotron jumbotron-billboard">
+  <div class="img"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>{{Titolo}}</h2>
+        <p>{{SottoTitolo}}</p>
+        @if (Show) {
+          <ng-container>
+            <a routerLink="/login" class="btn btn btn-primary btn-lg">Accedi</a>
+            <a routerLink="/signup" id="SignIn" class="btn btn-success btn-lg">Registrati</a>
+          </ng-container>
+        }
+    </div>
+    </div>
+  </div>
+</div>

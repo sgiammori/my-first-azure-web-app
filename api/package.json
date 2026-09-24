@@ -1,0 +1,20 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "cheerio": "^1.2.0",
+    "firebase-admin": "^13.10.0",
+    "node-fetch": "^2.6.12",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "azure-functions-core-tools": "^4.x"
+  }
+}

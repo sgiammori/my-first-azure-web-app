@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome in Stefano Giammori @ Crew website",
+    "subtitle": "Welcome post",
+    "content": "Website is online and fully working..",
+    "authors": [
+      {
+        "id": 1,
+        "author": "sgiammori"
+      }
+    ],
+    "date": "2026-03-25T23:00:00.000Z",
+    "htmlContent": "\n      <div class=\"blog-card card mb-4 shadow-sm\">\n        <div class=\"card-body\">\n          <div class=\"d-flex justify-content-between align-items-center mb-2\">\n            <div>\n              <h5 class=\"card-title mb-0 blog-card-title\">Welcome in Stefano Giammori @ Inc. website</h5>\n              <p class=\"card-text text-muted mb-1 blog-card-subtitle\">Welcome post</p>\n            </div>\n            <span class=\"badge rounded-pill bg-gradient blog-badge\">#1</span>\n          </div>\n          <div class=\"mb-2 d-flex align-items-center gap-2\">\n            <i class=\"bi bi-calendar-event text-primary\"></i>\n            <small class=\"text-body-secondary\">26/03/2026</small>\n          </div>\n          <div class=\"mb-2 d-flex align-items-center gap-2\">\n            <i class=\"bi bi-people text-primary\"></i>\n            <span class=\"fw-bold\">Authors:</span>\n            <span>sgiammori</span>\n          </div>\n          <div class=\"mb-2\">\n            <span class=\"fw-bold\">Content:</span>\n            <div class=\"card-text blog-card-content\">Website is online and fully working..</div>\n          </div>\n        </div>\n      </div>\n    ",
+    "uploadedOnFacebook": false
+  }
+]

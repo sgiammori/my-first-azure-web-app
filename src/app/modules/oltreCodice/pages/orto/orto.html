@@ -1,0 +1,69 @@
+<div class="container-fluid orto-page">
+
+  <header class="orto-header text-center">
+    <span class="orto-icon">🌱</span>
+    <h1>Il mio orto</h1>
+    <p class="orto-subtitle">Stagioni, sementi ed esperimenti. Dalla terra al tavolo, passando per la pazienza.</p>
+  </header>
+
+  <section class="orto-intro emphasis-relief">
+    <p>
+      Coltivare un orto insegna più di quanto si creda: insegna ad aspettare, ad osservare, a capire che non tutto
+      si può controllare. Dopo una giornata davanti allo schermo, le mani nella terra hanno un effetto quasi
+      terapeutico.
+    </p>
+    <p>
+      Ho iniziato a occuparmi della terra subito dopo lo scoppio del Covid, poi c'è stata una pausa e dal 2026,
+      dopo la perdita di mio padre, sto riprendendo questo percorso con ancora più significato.
+    </p>
+  </section>
+
+  <section class="orto-gallery" *ngIf="galleryByYear.length > 0">
+    <h2>Galleria per anno</h2>
+
+    <div class="year-block" *ngFor="let yearGroup of galleryByYear">
+      <h3>{{ yearGroup.year }}</h3>
+
+      <div class="year-grid">
+        <figure class="media-card" *ngFor="let media of yearGroup.items">
+          <button
+            *ngIf="media.type === 'image'"
+            type="button"
+            class="media-zoom-button"
+            [attr.aria-label]="'Apri foto ' + media.filename + ' ingrandita'"
+            (click)="openImage(media)"
+          >
+            <img [src]="media.src" [alt]="'Orto ' + media.year" loading="lazy" />
+          </button>
+
+          <video
+            *ngIf="media.type === 'video'"
+            [src]="media.src"
+            controls
+            preload="metadata"
+            playsinline
+          ></video>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="orto-lightbox" *ngIf="activeImage as image" (click)="closeImage()">
+    <button
+      type="button"
+      class="orto-lightbox-close"
+      aria-label="Chiudi immagine ingrandita"
+      (click)="$event.stopPropagation(); closeImage()"
+    >
+      ×
+    </button>
+
+    <img
+      class="orto-lightbox-image"
+      [src]="image.src"
+      [alt]="image.alt"
+      (click)="$event.stopPropagation()"
+    />
+  </div>
+
+</div>

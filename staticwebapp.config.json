@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "route": "/ads.txt",
+      "rewrite": "/ads.txt"
+    },
+    {
+      "route": "/app-ads.txt",
+      "rewrite": "/app-ads.txt"
+    },
+    {
+      "route": "/api/*",
+      "rewrite": "https://my-first-azure-funcapp.azurewebsites.net/api/:*"
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/images/*.{png,jpg,gif}",
+      "/css/*",
+      "/api/*"
+    ]
+  }
+}
