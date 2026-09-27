@@ -9,6 +9,8 @@ import { environment } from '../../shared/environments';
 
 // How often the ANSA news list is refreshed while the Home page is open (5 minutes).
 const NEWS_REFRESH_MS = 5 * 60 * 1000;
+// Max time SSR is allowed to wait for ANSA news before rendering anyway.
+const SSR_NEWS_MAX_WAIT_MS = 1200;
 
 @Component({
   selector: 'app-home',
@@ -63,11 +65,14 @@ export class Home implements OnInit {
   }
 
   ngOnInit() {
-    // First load: runs in the browser and on the server (SSR). In a zoneless app the SSR
-    // render does not wait for a plain fetch(), so it is wrapped in a pending task:
-    // the server holds the response until the news arrives, and the news ends up in
-    // the HTML that crawlers index.
-    this.pendingTasks.run(() => this.loadNews());
+    // First load in the browser should not block page startup.
+    if (isPlatformBrowser(this.platformId)) {
+      void this.loadNews();
+    } else {
+      // On SSR we still try to include news in HTML, but cap waiting time to avoid
+      // slow server responses when the upstream feed is delayed.
+      this.pendingTasks.run(() => this.loadNewsWithTimeout(SSR_NEWS_MAX_WAIT_MS));
+    }
 
     // Periodic refresh (browser only). An effect() is not the right tool here:
     // effects re-run when a signal they read changes, not after time passes, and
@@ -85,21 +90,34 @@ export class Home implements OnInit {
    * Fetches ANSA news from the Azure Function and stores it in the ansaNews signal.
    * Setting the signal is enough to refresh the template (the app is zoneless).
    */
-  private async loadNews() {
+  private async loadNews(abortSignal?: AbortSignal) {
     try {
       let newsRes;
       // On localhost the dev proxy (proxy.conf.js) forwards /api to the local Function;
       // everywhere else (production and the SSR server) the Function is called directly.
       if (isPlatformBrowser(this.platformId) && this.window.location.href.includes('localhost'))
-        newsRes = await fetch('/api/ansanews');
+        newsRes = await fetch('/api/ansanews', { signal: abortSignal });
       else
-        newsRes = await fetch(environment.funcUrl + '/api/ansanews');
+        newsRes = await fetch(environment.funcUrl + '/api/ansanews', { signal: abortSignal });
       if (!newsRes.ok) throw new Error(`HTTP ${newsRes.status}`);
       const newsRaw = await newsRes.json();
       this.ansaNews.set(this.formatAndSortAnsaNews(newsRaw));
     } catch (e) {
       // If a refresh fails, keep the news already on screen instead of clearing it
       // (on the very first load the signal simply stays at its initial empty array).
+    }
+  }
+
+  /**
+   * SSR helper: wait for news only for a bounded amount of time.
+   */
+  private async loadNewsWithTimeout(maxWaitMs: number): Promise<void> {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), maxWaitMs);
+    try {
+      await this.loadNews(controller.signal);
+    } finally {
+      clearTimeout(timeoutId);
     }
   }
 
