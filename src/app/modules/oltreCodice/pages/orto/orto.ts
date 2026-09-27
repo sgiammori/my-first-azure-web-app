@@ -37,7 +37,10 @@ const GREEN_MEDIA_FILENAMES: string[] = [
   '2026-7.jpg',
   '2026-8.jpg',
   '2026-9.jpg',
-  '2026-10.jpg'
+  '2026-10.jpg',
+  '2026-11.jpg',
+  '2026-12.jpg',
+  '2026-13.jpg',
 ];
 
 @Component({
