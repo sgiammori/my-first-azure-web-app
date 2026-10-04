@@ -10,6 +10,7 @@
   <ul *ngIf="!loading() && !error()">
     <li *ngFor="let item of rssItems()">
       <a [href]="item.link" target="_blank">{{ item.title }}</a>
+      <img *ngIf="item.image" class="itechblog-img" [src]="item.image" [alt]="item.title" loading="lazy" />
       <div class="itechblog-date">{{ item.pubDate | date:'medium' }}</div>
       <div class="itechblog-desc">{{ item.description }}</div>
     </li>

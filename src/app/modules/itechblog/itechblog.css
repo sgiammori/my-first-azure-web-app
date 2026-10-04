@@ -80,3 +80,10 @@
   color: #444;
   margin-top: 4px;
 }
+.itechblog-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 8px 0;
+}

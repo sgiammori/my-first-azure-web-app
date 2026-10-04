@@ -2,6 +2,22 @@ const { app } = require('@azure/functions');
 const cheerio = require('cheerio');
 const xml2js = require('xml2js');
 
+// Estrae l'immagine in evidenza e il testo semplice dalla descrizione HTML del feed
+function parseDescription(html, item) {
+    let image = null;
+    const media = item && (item['media:content'] || item['media:thumbnail'] || item.enclosure);
+    if (media && media[0] && media[0].$ && media[0].$.url) {
+        image = media[0].$.url;
+    }
+    if (!html) return { image, description: '' };
+    const $ = cheerio.load(html);
+    if (!image) {
+        const img = $('img').first();
+        if (img.length) image = img.attr('src') || null;
+    }
+    return { image, description: $.root().text().trim() };
+}
+
 app.http('itechnews', {
     methods: ['GET', 'POST'],
     authLevel: 'anonymous',
@@ -43,7 +59,7 @@ app.http('itechnews', {
                           title: item.title[0],
                           link: item.link[0],
                           pubDate: item.pubDate ? item.pubDate[0] : null,
-                          description: item.description ? item.description[0] : null
+                          ...parseDescription(item.description ? item.description[0] : null, item)
                       }));
                   } else if (result && result.feed && result.feed.entry) {
                       // Atom (es. Tom's Hardware)
@@ -51,7 +67,7 @@ app.http('itechnews', {
                           title: entry.title && entry.title[0] ? (typeof entry.title[0] === 'string' ? entry.title[0] : entry.title[0]._) : '',
                           link: entry.link && entry.link[0] && entry.link[0].$.href ? entry.link[0].$.href : '',
                           pubDate: entry.updated ? entry.updated[0] : null,
-                          description: entry.summary && entry.summary[0] ? (typeof entry.summary[0] === 'string' ? entry.summary[0] : entry.summary[0]._) : ''
+                          ...parseDescription(entry.summary && entry.summary[0] ? (typeof entry.summary[0] === 'string' ? entry.summary[0] : entry.summary[0]._) : '', entry)
                       }));
                   }
               } catch (parseErr) {
